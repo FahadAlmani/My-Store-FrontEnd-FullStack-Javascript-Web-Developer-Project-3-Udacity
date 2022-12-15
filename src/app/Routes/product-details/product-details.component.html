@@ -1,0 +1,27 @@
+<main class="d-flex flex-row justify-content-center mt-5 text-center">
+  <img class="rounded me-5" src="{{ product.url }}" />
+
+  <section class="ms-5 mt-5">
+    <h4>{{ product.name }}</h4>
+    <p>{{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <form (ngSubmit)="onSubmit()">
+      <select class="pe-5" name="quantity" id="quantity" [(ngModel)]="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+      <br />
+      <button type="submit" class="btn btn-primary my-3">Add to cart</button>
+    </form>
+    <a routerLink="/">
+      <fa-icon [icon]="faArrowLeft"></fa-icon> to product list</a
+    >
+  </section>
+</main>

@@ -1,0 +1,48 @@
+<form #form="ngForm">
+  <p>Full name</p>
+  <input
+    class="checkoutForm my-3 ps-2"
+    type="text"
+    name="fullName"
+    required
+    placeholder="(minimum 3 characters)"
+    minlength="3"
+    [(ngModel)]="fullName"
+  />
+
+  <p>Address</p>
+  <input
+    class="checkoutForm my-3 ps-2"
+    type="text"
+    name="address"
+    required
+    placeholder="(minimum 6 characters)"
+    minlength="6"
+    [(ngModel)]="address"
+  />
+
+  <p>Credit card number</p>
+  <input
+    class="checkoutForm my-3 ps-2"
+    type="text"
+    name="creditCardNumber"
+    required
+    placeholder="(16-digit number)"
+    minlength="16"
+    [(ngModel)]="creditCardNumber"
+  />
+
+  <p class="smallText">
+    We'll never share your payment details with anyone else
+  </p>
+  <a routerLink="/orderConfirmation"
+    ><button
+      type="submit"
+      (click)="onSubmit()"
+      class="btn btn-primary my-3"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button></a
+  >
+</form>

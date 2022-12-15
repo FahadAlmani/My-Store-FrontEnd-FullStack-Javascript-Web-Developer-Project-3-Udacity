@@ -1,0 +1,35 @@
+<main class="d-flex flex-row flex-wrap justify-content-center">
+  <section
+    class="item mx-5 my-3"
+    *ngFor="let product of products; let i = index"
+  >
+    <app-item-card [product]="product" [quantity]="quantity[i]"></app-item-card>
+  </section>
+</main>
+
+<!-- <div class="imageContaner border border-info text-center">
+  <img class="image py-2 px-2" src="{{ product.url }}" />
+</div>
+<p class="text-center">{{ product.name }}</p>
+<p class="text-center">${{ product.price }}</p>
+<form class="text-center" action="">
+  <select
+    class="pe-5"
+    name="quantity"
+    id="quantity"
+    [(ngModel)]="quantity[i]"
+  >
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+  <p>{{ quantity[i] }}</p>
+  <br />
+  <button type="button" class="btn btn-primary my-3">Add to cart</button>
+</form> -->
