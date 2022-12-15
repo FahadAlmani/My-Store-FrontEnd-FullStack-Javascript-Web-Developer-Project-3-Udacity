@@ -22,7 +22,7 @@ export class ItemCardComponent {
   }
 
   onSubmit() {
-    this.cartService.addProduct(this.product, this.quantity);
+    this.cartService.addProduct(this.product, Number(this.quantity));
     alert('the product was added');
   }
 }
