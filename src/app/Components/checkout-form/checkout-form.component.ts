@@ -11,17 +11,22 @@ export class CheckoutFormComponent {
   fullName: string = '';
   address: string = '';
   creditCardNumber: string = '';
-  creditErrorMassage: string = '';
+  creditErrorMassage: string = "The input entered isn't number";
   @Output() passFullName: EventEmitter<string> = new EventEmitter();
 
   constructor(private router: Router) {}
 
   onSubmit() {
-    if (Number(this.creditCardNumber)) {
-      this.passFullName.emit(this.fullName);
-      this.router.navigate(['/orderConfirmation']);
-    } else {
-      this.creditErrorMassage = "The input entered isn't number";
+    this.passFullName.emit(this.fullName);
+    this.router.navigate(['/orderConfirmation']);
+  }
+
+  inputValidation() {
+    if (this.creditCardNumber === '') {
+      return false;
+    } else if (Number(this.creditCardNumber)) {
+      return false;
     }
+    return true;
   }
 }

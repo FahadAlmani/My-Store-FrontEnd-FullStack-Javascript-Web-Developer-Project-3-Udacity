@@ -32,7 +32,7 @@
     [(ngModel)]="creditCardNumber"
   />
 
-  <span class="Error" *ngIf="creditErrorMassage">{{ creditErrorMassage }}</span>
+  <span class="Error" *ngIf="inputValidation()">{{ creditErrorMassage }}</span>
 
   <p class="smallText">
     We'll never share your payment details with anyone else
