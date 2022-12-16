@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart/cart.service';
 
 @Component({
@@ -10,10 +11,17 @@ export class CheckoutFormComponent {
   fullName: string = '';
   address: string = '';
   creditCardNumber: string = '';
+  creditErrorMassage: string = '';
+  @Output() passFullName: EventEmitter<string> = new EventEmitter();
 
-  constructor(private cartService: CartService) {}
+  constructor(private router: Router) {}
 
   onSubmit() {
-    this.cartService.setFullName(this.fullName);
+    if (Number(this.creditCardNumber)) {
+      this.passFullName.emit(this.fullName);
+      this.router.navigate(['/orderConfirmation']);
+    } else {
+      this.creditErrorMassage = "The input entered isn't number";
+    }
   }
 }

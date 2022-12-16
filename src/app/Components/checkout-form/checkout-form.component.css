@@ -6,3 +6,10 @@
   display: block;
   width: 12rem;
 }
+
+.Error {
+  color: #ff0062;
+  margin-top: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}

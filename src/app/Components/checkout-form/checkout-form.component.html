@@ -1,4 +1,4 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="onSubmit()">
   <p>Full name</p>
   <input
     class="checkoutForm my-3 ps-2"
@@ -32,17 +32,13 @@
     [(ngModel)]="creditCardNumber"
   />
 
+  <span class="Error" *ngIf="creditErrorMassage">{{ creditErrorMassage }}</span>
+
   <p class="smallText">
     We'll never share your payment details with anyone else
   </p>
-  <a routerLink="/orderConfirmation"
-    ><button
-      type="submit"
-      (click)="onSubmit()"
-      class="btn btn-primary my-3"
-      [disabled]="form.invalid"
-    >
-      Submit
-    </button></a
-  >
+
+  <button type="submit" class="btn btn-primary my-3" [disabled]="form.invalid">
+    Submit
+  </button>
 </form>

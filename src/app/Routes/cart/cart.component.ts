@@ -18,14 +18,33 @@ export class CartComponent {
     this.TotalPrice = this.cartService.getTotalPrice();
   }
 
-  updateTotal() {
+  updateTotal(quantity: number, id: number) {
+    for (let i = 0; i < this.products.length; i++) {
+      if (this.products[i].product.id === id) {
+        const productName: string = this.products[i].product.name;
+        const oldQuantity: number = this.products[i].quantity;
+        this.products[i].quantity = quantity;
+
+        if (oldQuantity < quantity) {
+          alert(`You added ${quantity - oldQuantity} ${productName}`);
+        } else if (oldQuantity > quantity) {
+          alert(`You removed ${oldQuantity - quantity} ${productName}`);
+        }
+
+        break;
+      }
+    }
     this.TotalPrice = this.cartService.getTotalPrice();
   }
 
   removeProduct(id: number) {
-    console.log('click');
     this.cartService.deleteProduct(id);
     this.products = this.cartService.getProduct();
-    this.updateTotal();
+    this.TotalPrice = this.cartService.getTotalPrice();
+    alert('The product was removed');
+  }
+
+  getFullName(fullName: string) {
+    this.cartService.setFullName(fullName);
   }
 }

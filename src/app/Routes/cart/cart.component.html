@@ -14,7 +14,7 @@
         <input
           min="1"
           type="number"
-          (change)="updateTotal()"
+          (ngModelChange)="updateTotal($event, product.product.id)"
           [(ngModel)]="product.quantity"
         />
         <button
@@ -27,5 +27,5 @@
     </div>
     <h4 class="mt-3">Total: ${{ TotalPrice }}</h4>
   </section>
-  <app-checkout-form></app-checkout-form>
+  <app-checkout-form (passFullName)="getFullName($event)"></app-checkout-form>
 </main>
